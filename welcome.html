@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App - Welcome</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Welcome Page Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0a0000;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: white;
+        }
+
+        .welcome-container {
+            width: 100%;
+            max-width: 900px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .welcome-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .welcome-header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: #00dbde; /* Cyan color */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-bottom: 20px;
+            color: #aaaaaa;
+        }
+
+        .welcome-card {
+            background: rgba(20, 20, 20, 0.9); /* Dark card background */
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            border: 1px solid #222222;
+        }
+
+        .feature-icon {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .feature-icon i {
+            font-size: 4rem;
+            color: #00dbde; /* Cyan color */
+        }
+
+        .welcome-card h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .welcome-description {
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            color: #cccccc;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .welcome-header h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        .feature-item {
+            background: rgba(30, 30, 30, 0.8);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid #333333;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            background: rgba(40, 40, 40, 0.9);
+            border-color: #00dbde;
+        }
+
+        .feature-icon-small {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #00dbde;
+        }
+
+        .feature-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .feature-item p {
+            font-size: 0.95rem;
+            color: #aaaaaa;
+            line-height: 1.5;
+        }
+
+        .instructions {
+            background: rgba(30, 30, 30, 0.8);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 35px;
+            border-left: 4px solid #00dbde;
+            border: 1px solid #333333;
+        }
+
+        .instructions h3 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .instructions ul {
+            list-style: none;
+        }
+
+        .instructions li {
+            padding: 10px 0;
+            border-bottom: 1px solid #333333;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #cccccc;
+        }
+
+        .instructions li:last-child {
+            border-bottom: none;
+        }
+
+        .instructions li i {
+            color: #00dbde;
+            width: 20px;
+        }
+
+        .start-chat-btn {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #00dbde, #0093E9);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            box-shadow: 0 5px 15px rgba(0, 219, 222, 0.3);
+        }
+
+        .start-chat-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 219, 222, 0.4);
+            background: linear-gradient(135deg, #00c8cb, #0082d9);
+        }
+
+        .tech-info {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .tech-info h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .tech-tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tech-tag {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #cccccc;
+            border: 1px solid #333333;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body class="welcome-page">
+    <div class="welcome-container">
+        <div class="welcome-header">
+            <h1><i class="fas fa-comments"></i> Real-Time Chat App</h1>
+            <p class="subtitle">Frontend-only chat with message persistence</p>
+        </div>
+
+        <div class="welcome-card">
+            <div class="feature-icon">
+                <i class="fas fa-rocket"></i>
+            </div>
+            <h2>Welcome to Real-Time Chat</h2>
+            <p class="welcome-description">
+                Experience a fully functional chat application built with HTML, CSS, and JavaScript. 
+                All messages are stored locally in your browser.
+            </p>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon-small">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Real-Time</h3>
+                    <p>Messages appear instantly with smooth animations</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon-small">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Local Storage</h3>
+                    <p>Messages persist even after closing the browser</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon-small">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Smart Chatbot</h3>
+                    <p>AI chatbot responds to your messages intelligently</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon-small">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Responsive</h3>
+                    <p>Works perfectly on desktop, tablet, and mobile</p>
+                </div>
+            </div>
+            
+            <div class="instructions">
+                <h3><i class="fas fa-info-circle"></i> How to Use:</h3>
+                <ul>
+                    <li><i class="fas fa-keyboard"></i> Type messages in the input field and click send or press Enter</li>
+                    <li><i class="fas fa-save"></i> Messages are automatically saved locally in your browser</li>
+                    <li><i class="fas fa-robot"></i> Chatbot responds to keywords: hello, help, weather, time, name</li>
+                    <li><i class="fas fa-trash-alt"></i> Use "Clear Chat" to remove all messages from storage</li>
+                    <li><i class="fas fa-sync-alt"></i> Messages will persist even after refreshing the page</li>
+                </ul>
+            </div>
+            
+            <button class="start-chat-btn" onclick="location.href='chat.html'">
+                <i class="fas fa-comment-dots"></i> Start Chatting
+            </button>
+            
+            <div class="tech-info">
+                <h4><i class="fas fa-code"></i> Built With:</h4>
+                <div class="tech-tags">
+                    <span class="tech-tag">HTML5</span>
+                    <span class="tech-tag">CSS3</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">LocalStorage</span>
+                    <span class="tech-tag">Font Awesome</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Real-Time Chat App &copy; 2026 | Frontend Only Application</p>
+        </div>
+    </div>
+    
+    <script>
+        // Add some animation to the start button
+        document.addEventListener('DOMContentLoaded', function() {
+            const startBtn = document.querySelector('.start-chat-btn');
+            if (startBtn) {
+                startBtn.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px)';
+                });
+                
+                startBtn.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
